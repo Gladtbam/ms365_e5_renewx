@@ -21,12 +21,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3.0.0
 
-      - name: Install cosign
-        if: github.event_name != 'pull_request'
-        uses: sigstore/cosign-installer@v2.1.0
-        with:
-          cosign-release: 'v1.4.0'
-
       - name: Docker Setup QEMU
         uses: docker/setup-qemu-action@v1.2.0
         with:
@@ -57,13 +51,3 @@ jobs:
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-
-      - name: Sign the published Docker image
-  #      env:
-  #        COSIGN_EXPERIMENTAL: "true"
-        run: |
-          echo ${{ secrets.COSIGN_KEY }} > /tmp/cosign.key
-          cosign sign --key /tmp/cosign.key ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}@${{ steps.build-and-push.outputs.digest }}
-        env:
-          COSIGN_KEY: ${{secrets.COSIGN_KEY}}
-          COSIGN_PASSWORD: ${{secrets.COSIGN_PASSWORD}}
