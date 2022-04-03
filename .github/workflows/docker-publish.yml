@@ -1,4 +1,4 @@
-name: Docker Push to Github Packages(ghcr.io)
+name: Docker
 
 on:
   workflow_dispatch:
@@ -62,7 +62,7 @@ jobs:
   #      env:
   #        COSIGN_EXPERIMENTAL: "true"
         run: |
-          echo ${COSIGN_KEY} > /tmp/cosign.key
+          echo ${{ secrets.COSIGN_KEY }} > /tmp/cosign.key
           cosign sign --key /tmp/cosign.key ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}@${{ steps.build-and-push.outputs.digest }}
         env:
           COSIGN_KEY: ${{secrets.COSIGN_KEY}}
