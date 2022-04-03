@@ -15,6 +15,8 @@
 
 拉取镜像  
 `docker push gladtbam/ms365_e5_renewx:latest`
+或者
+`docker pull ghcr.io/gladtbam/ms365_e5_renewx_docker:main`
 
 ### 使用默认配置部署
 
