@@ -14,7 +14,7 @@
 ## 部署
 
 拉取镜像  
-`docker push gladtbam/ms365_e5_renewx:v1`
+`docker push gladtbam/ms365_e5_renewx:latest`
 
 ### 使用默认配置部署
 
@@ -22,7 +22,7 @@
 docker run -d \
     -p 1066:1066 \
     --name RnewX \
-gladtbam/ms365_e5_renwx:v1
+gladtbam/ms365_e5_renwx:latest
 ```
 
 ### 自定义配置
@@ -36,7 +36,7 @@ docker run -d \
     -v $PWD/Deploy:/renewx/Deploy \
     -v $PWD/appdata:/renewx/appdata \
     --name RnewX \
-gladtbam/ms365_e5_renwx:v1
+gladtbam/ms365_e5_renwx:latest
 ```
 
 **Deploy内放置Config.xml文件**  
