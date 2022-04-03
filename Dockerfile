@@ -2,17 +2,12 @@ FROM mcr.microsoft.com/dotnet/aspnet:3.1 AS ontology
 
 WORKDIR /renewx
 
-# 中国大陆境内取消6、7行注释，防止网速太慢，非Debian系自行修改替换
-#RUN sed -i 's/deb.debian.org/mirrors.aliyun.com/g' /etc/apt/sources.list \
-#    && sed -i 's/security.debian.org/mirrors.aliyun.com/g' /etc/apt/sources.list \
-RUN apt update \
+RUN sed -i 's/deb.debian.org/mirrors.aliyun.com/g' /etc/apt/sources.list \
+    && sed -i 's/security.debian.org/mirrors.aliyun.com/g' /etc/apt/sources.list \
+    && apt update \
     && apt install -y wget unzip\
     && wget https://pan.gladtbam.top/auto/%E8%BD%AF%E4%BB%B6/E5/Microsoft365_E5_Renew_X.zip \
     && unzip Microsoft365_E5_Renew_X.zip -d /renewx 
-#    && rm -rf Microsoft365_E5_Renew_X.zip \
-#    && apt clean \
-#    && rm -rf /root/* \
-#    && rm -rf /var/lib/apt/*
 
 FROM mcr.microsoft.com/dotnet/aspnet:3.1
 
