@@ -66,4 +66,4 @@ jobs:
           cosign sign --key /tmp/cosign.key ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}@${{ steps.build-and-push.outputs.digest }}
         env:
           COSIGN_KEY: ${{secrets.COSIGN_KEY}}
-          COSIGN_PASSWORD: ${{secrets.COSIGN_PASSWORD}
+          COSIGN_PASSWORD: ${{secrets.COSIGN_PASSWORD}}
