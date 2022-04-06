@@ -24,7 +24,7 @@
 docker run -d \
     -p 1066:1066 \
     --name RnewX \
-gladtbam/ms365_e5_renwx:latest
+gladtbam/ms365_e5_renewx:latest
 ```
 
 ### 自定义配置
@@ -38,7 +38,7 @@ docker run -d \
     -v $PWD/Deploy:/renewx/Deploy \
     -v $PWD/appdata:/renewx/appdata \
     --name RnewX \
-gladtbam/ms365_e5_renwx:latest
+gladtbam/ms365_e5_renewx:latest
 ```
 
 **Deploy内放置Config.xml文件**  
