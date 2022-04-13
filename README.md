@@ -9,7 +9,7 @@
 
 [SundayRX博客](https://blog.csdn.net/qq_33212020/article/details/119747634)
 
-[Docker Hub](https://hub.docker.com/repository/docker/gladtbam/ms365_e5_renewx)
+[Docker Hub](https://hub.docker.com/r/docker/gladtbam/ms365_e5_renewx)
 
 ## 支持版本
 
