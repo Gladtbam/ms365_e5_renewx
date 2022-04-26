@@ -3,6 +3,7 @@ services:
   renewx:
     image: gladtbam/ms365_e5_renewx:latest
     volumes:
-      - ./renewx/Deploy:/renewx/Deploy
+      - ./renewx/Deploy:/renewx/Deploy/
+      - ./renewx/appdata:/renewx/appdata/
     ports:
       - "1066:1066"
