@@ -37,6 +37,8 @@ docker run -d \
 gladtbam/ms365_e5_renewx:latest
 ```
 
+> 注：默认配置密码为12345678
+
 ### 自定义配置
 
 1. 下载[E5 Renew X](https://sundayrx.lanzoui.com/aW09Lsss75g) 的配置文件`Config.xml`，按照Config.xml文件说明进行修改
