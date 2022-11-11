@@ -2,8 +2,12 @@ version: '3'
 services:
   renewx:
     image: gladtbam/ms365_e5_renewx:latest
+    environment:
+      - TZ=Asia/Shanghai
     volumes:
       - ./renewx/Deploy:/renewx/Deploy/
       - ./renewx/appdata:/renewx/appdata/
     ports:
       - "1066:1066"
+    restart: unless-stopped
+
