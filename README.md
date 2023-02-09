@@ -57,6 +57,22 @@ gladtbam/ms365_e5_renewx:latest
 
 **Deploy内放置Config.xml文件**  
 
+
+### DockerCompose **推荐**
+
+```
+1. 下载 docker-compose.yml   
+`wget https://raw.githubusercontent.com/Gladtbam/ms365_e5_renewx/main/docker-compose.yml`
+
+2. 创建挂载路径，并按照 docker-compose.yml 注释说明修改路径  
+# 仅示例
+mkdir -p /opt/renewx/appdata
+mkdir -p /opt/renewx/Deploy
+
+3. 启动
+docker-compose up -d
+```
+
 ## 自行构建
 
 [Github下载Dockerfile](https://github.com/Gladtbam/ms365_e5_renewx_docker)文件  
