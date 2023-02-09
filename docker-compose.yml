@@ -1,13 +1,32 @@
-version: '3'
+version: '3.5'
+
 services:
   renewx:
     image: gladtbam/ms365_e5_renewx:latest
+    container_name: renewx
+#    network_mode: host
     environment:
       - TZ=Asia/Shanghai
-    volumes:  # 默认配置不需要volumes，请删除
-      - ./renewx/Deploy:/renewx/Deploy/
-      - ./renewx/appdata:/renewx/appdata/
+    volumes:
+      - renewx-deploy:/renewx/Deploy/
+      - renewx-appdata:/renewx/appdata/
     ports:
       - "1066:1066"
     restart: unless-stopped
+
+volumes:
+  renewx-deploy:
+    name: renewx-deploy
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: /opt/renewx/Deploy #Deploy挂载路径，该路径必须存在且为绝对路径，自行修改
+  renewx-appdata:
+    name: renewx-appdata
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: /opt/renewx/appdata #appdata挂载路径，该路径必须存在且为绝对路径，自行修改
 
