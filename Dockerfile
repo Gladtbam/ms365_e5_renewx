@@ -4,7 +4,7 @@ WORKDIR /renewx
 
 RUN apt update \
     && apt install -y wget unzip\
-    && wget https://pan.gladtbam.top/auto/%E8%BD%AF%E4%BB%B6/E5/Microsoft365_E5_Renew_X.zip \
+    && wget https://list.gladtbam.top/d/%E8%BD%AF%E4%BB%B6/E5/Microsoft365_E5_Renew_X.zip \
     && unzip Microsoft365_E5_Renew_X.zip -d /renewx \
     && rm -rf Microsoft365_E5_Renew_X.zip
 
