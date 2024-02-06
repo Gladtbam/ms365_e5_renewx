@@ -1,12 +1,13 @@
-version: '3.5'
+version: "3.5"
 
 services:
   renewx:
-    image: gladtbam/ms365_e5_renewx:latest
+    image: zilanlann/ms365_e5_renewx:latest
     container_name: renewx
-#    network_mode: host
+    #    network_mode: host
     environment:
       - TZ=Asia/Shanghai
+      - LoginPassword=<your login password>
     volumes:
       - renewx-deploy:/renewx/Deploy/
       - renewx-appdata:/renewx/appdata/
@@ -16,17 +17,4 @@ services:
 
 volumes:
   renewx-deploy:
-    name: renewx-deploy
-    driver: local
-    driver_opts:
-      o: bind
-      type: none
-      device: /opt/renewx/Deploy #Deploy挂载路径，该路径必须存在且为绝对路径，自行修改
   renewx-appdata:
-    name: renewx-appdata
-    driver: local
-    driver_opts:
-      o: bind
-      type: none
-      device: /opt/renewx/appdata #appdata挂载路径，该路径必须存在且为绝对路径，自行修改
-
