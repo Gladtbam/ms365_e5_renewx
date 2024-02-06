@@ -1,0 +1,2 @@
+Id,AccessFailedCount,ConcurrencyStamp,Email,EmailConfirmed,LastLoginDate,LockoutEnabled,LockoutEnd,Name,NormalizedEmail,NormalizedUserName,OAuthId,PasswordHash,PhoneNumber,PhoneNumberConfirmed,Quota,RegisterDate,SecurityStamp,Status,TwoFactorEnabled,UserName
+00000000-0000-0000-0000-000000000000,0,fa7687da-19e7-4c37-97d2-04b933b37207,,False,01/01/0001 00:00:00,True,,Admin,,00000000-0000-0000-0000-000000000000,,,,False,999,01/01/0001 00:00:00,DMU64J7N565RC6TIPZUK4MIVSU3PYEOR,0,False,00000000-0000-0000-0000-000000000000
