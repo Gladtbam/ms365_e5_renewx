@@ -1,7 +1,23 @@
-# 前言
+# MS365 E5 RenewX Docker
+
+<!--toc:start-->
+- [MS365 E5 RenewX Docker](#ms365-e5-renewx-docker)
+  - [前言](#前言)
+  - [链接](#链接)
+  - [支持版本](#支持版本)
+  - [部署](#部署)
+    - [使用默认配置部署](#使用默认配置部署)
+    - [自定义配置](#自定义配置)
+    - [DockerCompose **推荐**](#dockercompose-推荐)
+  - [自行构建](#自行构建)
+  - [Nginx反向代理](#nginx反向代理)
+<!--toc:end-->
+
+## 前言
+
 本Docker基于[SundayRX](https://blog.csdn.net/qq_33212020?type=blog) [E5 Renew X](https://blog.csdn.net/qq_33212020/article/details/119747634)
 
-# 详细使用文档，请查看[WiKi](https://github.com/Gladtbam/ms365_e5_renewx/wiki)
+详细使用文档，请查看[WiKi](https://github.com/Gladtbam/ms365_e5_renewx/wiki)
 
 ## 链接
 
@@ -26,27 +42,27 @@
 ## 部署
 
 拉取镜像  
-`docker pull gladtbam/ms365_e5_renewx:latest`  
-或者  
-`docker pull ghcr.io/gladtbam/ms365_e5_renewx:latest`
+`docker pull zilanlann/ms365_e5_renewx:latest`  
 
 ### 使用默认配置部署
 
-```
+```sh
 docker run -d \
     -p 1066:1066 \
     --name RenewX \
+    -e LoginPassword=<your password> \
 gladtbam/ms365_e5_renewx:latest
 ```
 
-> 注：默认配置密码为12345678
+> `<your password>` 替换成你自己想要的密码
 
 ### 自定义配置
 
-1. 下载[E5 Renew X](https://sundayrx.lanzoui.com/aW09Lsss75g) 的配置文件`Config.xml`，按照Config.xml文件说明进行修改
+1. 下载本仓库中 renewx/Deploy 这个文件夹中的 Config.xml
 
 2. 启动容器  
-```
+
+```sh
 docker run -d \
     -p 1066:1066 \
     -v $PWD/Deploy:/renewx/Deploy \
@@ -55,35 +71,41 @@ docker run -d \
 gladtbam/ms365_e5_renewx:latest
 ```
 
-**Deploy内放置Config.xml文件**  
-
+> 注：Deploy内放置Config.xml文件
 
 ### DockerCompose **推荐**
 
-```
-1. 下载 docker-compose.yml   
-`wget https://raw.githubusercontent.com/Gladtbam/ms365_e5_renewx/main/docker-compose.yml`
+1. 下载 docker-compose.yaml
 
-2. 创建挂载路径，并按照 docker-compose.yml 注释说明修改路径  
-# 仅示例
-mkdir -p /opt/renewx/appdata
-mkdir -p /opt/renewx/Deploy
+    ```sh
+    wget https://raw.githubusercontent.com/zilanlann/ms365_e5_renewx/main/docker-compose.yaml
+    ```
+
+2. 修改 docker-compose.yaml，自行决定采用命名卷还是路径绑定方式挂载数据
+
+    > 建议采用命名卷方式，假如采用此方式，不需要修改docker-compose.yaml，直接up即可
 
 3. 启动
-docker-compose up -d
-```
+
+    ```sh
+    docker-compose up -d
+    ```
 
 ## 自行构建
 
-[Github下载Dockerfile](https://github.com/Gladtbam/ms365_e5_renewx_docker)文件  
+`clone` 本仓库，并 `cd` 到仓库目录
+
+```sh
+git clone https://github.com/Zilanlann/ms365_e5_renewx.git ~/ms365_e5 && cd ~/ms365_e5
+```
 
 ```bash
-docker build -f Dockerfile -t ms365_e5_renewx . --no-cache
+docker build -t ms365_e5_renewx . --no-cache
 ```
 
 ## Nginx反向代理
 
-```
+```conf
 location ~ / {
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header Host $http_host;
@@ -91,4 +113,3 @@ location ~ / {
         proxy_pass https://127.0.0.1:1066;
 }
 ```
-
