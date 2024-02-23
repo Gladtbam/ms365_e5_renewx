@@ -3,9 +3,11 @@ FROM mcr.microsoft.com/dotnet/aspnet:3.1 AS ontology
 WORKDIR /renewx
 
 RUN apt update \
-    && apt install -y wget unzip\
-    && wget https://list.gladtbam.top/d/%E8%BD%AF%E4%BB%B6/E5/Microsoft365_E5_Renew_X.zip \
-    && unzip Microsoft365_E5_Renew_X.zip -d /renewx \
+    && apt install -y unzip
+
+COPY Microsoft365_E5_Renew_X.zip /renewx/Microsoft365_E5_Renew_X.zip
+
+RUN unzip Microsoft365_E5_Renew_X.zip -d /renewx \
     && rm -rf Microsoft365_E5_Renew_X.zip
 
 FROM mcr.microsoft.com/dotnet/aspnet:3.1
