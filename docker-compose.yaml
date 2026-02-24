@@ -1,5 +1,3 @@
-version: '3.5'
-
 services:
   renewx:
     image: gladtbam/ms365_e5_renewx:latest
