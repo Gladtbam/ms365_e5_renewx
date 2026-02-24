@@ -5,9 +5,9 @@
 
 ## 链接
 
-[Microsoft 365 E5 Renew X Docker 部署](https://www.gladtbam.top/posts/22256/)
+[Microsoft 365 E5 Renew X Docker 部署](https://512300.xyz/posts/22256/)
 
-[Microsoft 365 E5 Renew X 部署记录](https://www.gladtbam.top/posts/37680/)
+[Microsoft 365 E5 Renew X 部署记录](https://512300.xyz/posts/37680/)
 
 [SundayRX博客](https://blog.csdn.net/qq_33212020/article/details/119747634)
 
